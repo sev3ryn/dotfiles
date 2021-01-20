@@ -16,6 +16,12 @@ zinit light-mode lucid wait for \
       agkozak/zsh-z \
       Aloxaf/fzf-tab
 
+zinit ice from"gh-r" as"command" mv"ripgrep* -> rg" pick"rg/rg"
+zinit light BurntSushi/ripgrep
+
+zinit ice from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
+zinit light sharkdp/bat
+
 # autocompletions
 # ssh
 function refresh_ssh_autocomplete () {

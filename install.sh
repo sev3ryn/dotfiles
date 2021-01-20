@@ -1,6 +1,6 @@
 #!/bin/sh -x
 
-# brew install hstr ripgrep
+# brew install hstr
 # brew install gpg2 pinentry-mac
 # echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 
