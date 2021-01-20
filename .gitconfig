@@ -1,0 +1,87 @@
+[user]
+	name = Severyn Lisovskyi
+	email = smlisovsky@gmail.com
+	signingkey = F5C07742D433E0D6
+[includeIf "gitdir:~/go/src/gitlab.services.ams.osa/"]
+	path = ~/.workgitconfig
+[github]
+	user = sev3ryn
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[advice]
+	statusHints = false
+
+[gui]
+	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+
+[core]
+	excludesfile = ~/.gitignore
+	quotepath = false
+	autocrlf = input
+	safecrlf = warn
+	editor = vim
+
+[alias]
+	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
+	amend = commit --amend --no-edit
+	b = checkout -B
+	ca = diff --cached
+	co = checkout
+	d = diff --color-words
+	fixup = !git commit --fixup $(git ll | fzf | cut -d' ' -f1)
+	squash = !git rebase -i --autosquash "$(git ll | fzf | cut -d' ' -f1)^1"
+	lg = log -p
+	ll = log --pretty=oneline --abbrev-commit
+	sha = rev-parse HEAD
+	st = status
+	uncommit = reset HEAD~
+	unstage = reset HEAD --
+	update = pull --rebase --strategy-option theirs origin
+	clear = reset --hard HEAD
+
+[apply]
+	whitespace = nowarn
+
+[rerere]
+	#Enable the recording of resolved conflicts, so that identical hunks can be resolved automatically later on
+	enabled = 1
+[commit]
+	gpgsign = true
+
+[credential]
+	# cache creds (git help credential-cache)
+	helper = cache
+
+[filter "tabspace"]
+	clean = expand -t 4
+
+[push]
+	default = current
+	followTags = true
+
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[gpg]
+	program = gpg

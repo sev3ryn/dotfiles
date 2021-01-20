@@ -1,0 +1,4 @@
+export VAULT_ADDR=https://vault.service.osa:443
+export GOPRIVATE=gitlab.services.ams.osa
+
+export WORKFOLDER='~/go/src/gitlab.services.ams.osa'
