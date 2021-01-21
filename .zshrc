@@ -1,7 +1,6 @@
 for f in ~/.zs/*(.); do source $f; done
 
 # hstr opts
-setopt histignorespace
 export HSTR_CONFIG=hicolor,no-confirm
 bindkey -s "\C-r" "\C-a hstr -- \C-j"
 
