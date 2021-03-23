@@ -21,6 +21,18 @@ zinit light BurntSushi/ripgrep
 zinit ice from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
 zinit light sharkdp/bat
 
+zinit ice from"gh-r" as"command" mv"fd* -> fd" pick"fd/fd"
+zinit light sharkdp/fd
+
+if [[ `uname` == "Darwin" ]]; then
+
+zinit as"none" depth"1" \
+  atclone"brew install hstr" \
+  atpull"brew upgrade hstr" \
+  atdelete"brew uninstall hstr" \
+  for dvorka/hstr;
+
+fi
 # autocompletions
 # ssh
 function refresh_ssh_autocomplete () {
