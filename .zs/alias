@@ -3,3 +3,4 @@ alias k=kubectl
 
 alias j=z
 alias rg="rg --hidden --glob '!.git'"
+alias cdr='cd $(git rev-parse --show-toplevel)'

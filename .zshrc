@@ -1,19 +1,21 @@
 for f in ~/.zs/*(.); do source $f; done
 
-# hstr opts
-export HSTR_CONFIG=hicolor,no-confirm
-bindkey -s "\C-r" "\C-a hstr -- \C-j"
-
 # prompt
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sev3ryn/pure
 
+
 # plugins
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
+zinit ice multisrc'shell/{completion,key-bindings}.zsh'
+zinit load junegunn/fzf
+
 zinit light-mode lucid wait for \
   from"gh-r" as"program" \
-      junegunn/fzf \
       agkozak/zsh-z \
       Aloxaf/fzf-tab
+      # junegunn/fzf \
 
 zinit ice from"gh-r" as"command" mv"ripgrep* -> rg" pick"rg/rg"
 zinit light BurntSushi/ripgrep
@@ -84,3 +86,7 @@ zinit wait lucid atload"zicompinit; zicdreplay" blockf for \
 ## always zsh_autosuggest as last plugin
 zinit wait lucid atload"_zsh_autosuggest_start; zicompinit; zicdreplay" for \
     zsh-users/zsh-autosuggestions
+
+# hstr opts
+export HSTR_CONFIG=hicolor,no-confirm
+bindkey -s "\C-r" "\C-a hstr -- \C-j"
