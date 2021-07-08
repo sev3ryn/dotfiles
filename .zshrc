@@ -13,9 +13,9 @@ zinit load junegunn/fzf
 
 zinit light-mode lucid wait for \
   from"gh-r" as"program" \
-      agkozak/zsh-z \
       Aloxaf/fzf-tab
-      # junegunn/fzf \
+
+zinit load agkozak/zsh-z
 
 zinit ice from"gh-r" as"command" mv"ripgrep* -> rg" pick"rg/rg"
 zinit light BurntSushi/ripgrep
