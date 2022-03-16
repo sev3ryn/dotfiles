@@ -1,7 +1,7 @@
 [user]
 	name = Severyn Lisovskyi
-	email = smlisovsky@gmail.com
-	signingkey = F5C07742D433E0D6
+	email = 993215+sev3ryn@users.noreply.github.com 
+	signingkey = 82066C73A25AF392 
 [includeIf "gitdir:~/go/src/gitlab.services.ams.osa/"]
 	path = ~/.workgitconfig
 [github]
@@ -30,7 +30,7 @@
 	fontdiff = -family Monaco -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/slisovskyi/.ignore
 	quotepath = false
 	autocrlf = input
 	safecrlf = warn
@@ -44,7 +44,7 @@
 	co = checkout
 	d = diff --color-words
 	fixup = !git commit --fixup $(git ll | fzf | cut -d' ' -f1)
-	squash = !git rebase -i --autosquash "$(git ll | fzf | cut -d' ' -f1)^1"
+	squash = !git rebase -i --autosquash --allow-empty "$(git ll | fzf | cut -d' ' -f1)^1"
 	lg = log -p
 	ll = log --pretty=oneline --abbrev-commit
 	sha = rev-parse HEAD
@@ -85,3 +85,5 @@
 	required = true
 [gpg]
 	program = gpg
+[pull]
+	rebase = true

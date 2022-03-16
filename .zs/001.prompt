@@ -1,0 +1,2 @@
+zi ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zi light sev3ryn/pure

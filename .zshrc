@@ -90,3 +90,7 @@ zinit wait lucid atload"_zsh_autosuggest_start; zicompinit; zicdreplay" for \
 # hstr opts
 export HSTR_CONFIG=hicolor,no-confirm
 bindkey -s "\C-r" "\C-a hstr -- \C-j"
+if [ -e /Users/slisovskyi/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/slisovskyi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# added by pipsi (https://github.com/mitsuhiko/pipsi)
+export PATH="/Users/slisovskyi/.local/bin:$PATH"

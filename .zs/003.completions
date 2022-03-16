@@ -1,0 +1,49 @@
+zi ice as"completion"
+zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+zi ice lucid wait as'completion' blockf has'rg'
+zi snippet https://github.com/BurntSushi/ripgrep/blob/master/complete/_rg
+
+zi ice lucid wait as'completion' blockf has'fd'
+zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/fd/_fd
+
+zi ice lucid wait as'completion' blockf has'youtube-dl' mv'youtube-dl.zsh -> _youtube-dl'
+zi snippet https://github.com/ytdl-org/youtube-dl/blob/master/youtube-dl.plugin.zsh
+
+zi ice lucid wait as'completion' blockf mv'git-completion.zsh -> _git'
+zi snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+
+# kubectl
+zi light-mode lucid wait has"kubectl" for \
+ id-as"kubectl_completion" \
+ as"completion" \
+ atclone"kubectl completion zsh > _kubectl" \
+ atpull"%atclone" \
+ run-atpull \
+   z-shell/null
+
+# helm
+zi light-mode lucid wait has"helm" for \
+ id-as"helm_completion" \
+ as"completion" \
+ atclone"helm completion zsh > _helm" \
+ atpull"%atclone" \
+ run-atpull \
+   z-shell/null
+
+# skaffold
+zi light-mode lucid wait has"skaffold" for \
+ id-as"skaffold_completion" \
+ as"completion" \
+ atclone"skaffold completion zsh > _skaffold" \
+ atpull"%atclone" \
+ run-atpull \
+   z-shell/null
+
+zi ice lucid wait has'fzf'
+zi light Aloxaf/fzf-tab
+
+# other completions
+# should be done as last completion step
+zi wait lucid atload"zicompinit; zicdreplay" blockf for \
+    zsh-users/zsh-completions

@@ -1,0 +1,38 @@
+zi ice from"gh-r" as"command" mv"ripgrep* -> rg" pick"rg/rg"
+zi light BurntSushi/ripgrep
+
+zi ice from"gh-r" as"command" mv"bat* -> bat" pick"bat/bat"
+zi light sharkdp/bat
+
+zi ice from"gh-r" as"command" mv"fd* -> fd" pick"fd/fd"
+zi light sharkdp/fd
+
+zi ice wait lucid
+zi load wfxr/forgit
+
+zi load agkozak/zsh-z
+
+# fzf
+zi ice from"gh-r" as"program"
+zi load junegunn/fzf-bin
+zi ice multisrc'shell/{completion,key-bindings}.zsh'
+zi load junegunn/fzf
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+if [[ `uname` == "Darwin" ]]; then
+
+zi as"none" depth"1" \
+ atclone"brew install hstr" \
+ atpull"brew upgrade hstr" \
+ atdelete"brew uninstall hstr" \
+ for dvorka/hstr;
+
+  export HSTR_CONFIG=hicolor,no-confirm
+  bindkey -s "\C-r" "\C-a hstr -- \C-j"
+fi
+
+# autosuggestions. Always install as last plugin
+zi wait lucid atload"_zsh_autosuggest_start; zicompinit; zicdreplay" for \
+    zsh-users/zsh-autosuggestions

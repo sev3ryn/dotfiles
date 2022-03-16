@@ -1,0 +1,4 @@
+vault_rekey(){
+vault operator rekey -backup-retrieve -format=json > raw || exit 1
+cat raw | grep "${PGP_PUBKEY}" -A1 | grep -v "${PGP_PUBKEY}" | tail -n1 | cut -d "\"" -f2 | base64 --d | gpg -qd | gopass insert -f ${1} 
+}
