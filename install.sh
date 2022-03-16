@@ -4,6 +4,7 @@ ln -s $(pwd)/.zs ~/.zs
 ln -s $(pwd)/.zshrc ~/.zshrc
 ln -s $(pwd)/.gitconfig ~/.gitconfig
 ln -s $(pwd)/.workgitconfig ~/.workgitconfig
+ln -s $(pwd)/kitty.conf ~/.config/kitty/kitty.conf
 
 if [[ `uname` == "Darwin" ]]; then
 
